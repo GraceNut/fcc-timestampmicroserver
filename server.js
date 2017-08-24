@@ -21,11 +21,11 @@ app.use(function(req, res, next) {
     'unix': null,
     'natural': null,
   }
-  if (!isNaN(Number(req.originalUrl.slice(1))) && req.originalUrl.slice(1) != "") {
+  if (!isNaN(Number(req.originalUrl.slice(1))) && i.url != "") {
     i.date = new Date(Number(i.url * 1000));
     r.unix = i.url;
     r.natural = months[i.date.getMonth()] + ' ' + i.date.getDate() + ', ' + i.date.getFullYear();
-  } else if (new Date(i.url.split('%20').join(' ')) !== 'Invalid Date') {
+  } else if (new Date(i.url.split('%20').join(' ')) !== 'Invalid Date' && i.url != "") {
     i.date = new Date(i.url.split('%20').join(' '));
     r.unix = i.date.getTime() / 1000;
     r.natural = i.url.split('%20').join(' ');
