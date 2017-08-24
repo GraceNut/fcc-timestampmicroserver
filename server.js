@@ -28,7 +28,7 @@ app.use(function(req, res, next) {
   } else if (new Date(i.url.split('%20').join(' ')) !== 'Invalid Date' && i.url != "") {
     i.date = new Date(i.url.split('%20').join(' '));
     r.unix = i.date.getTime() / 1000;
-    r.natural = i.url.split('%20').join(' ');
+    r.natural = months[i.date.getMonth()] + ' ' + i.date.getDate() + ', ' + i.date.getFullYear();
   }
   res.send(r);
 });
